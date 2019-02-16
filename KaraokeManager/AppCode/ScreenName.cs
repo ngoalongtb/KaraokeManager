@@ -14,5 +14,6 @@ namespace KaraokeManager.AppCode
         public const string MUSIC = "Music";
         public const string ROOM = "Room";
         public const string USER = "User";
+        public const string STUDENT = "Student";
     }
 }

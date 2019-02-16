@@ -82,8 +82,7 @@ namespace KaraokeManager.Screen
             user.Fullname = txtFullName.Text;
             user.PhoneNumber = txtPhoneNumber.Text;
             user.PersonId = txtPersonId.Text;
-            user.Username = cbxUserType.Text;
-
+            user.UserType = cbxUserType.Text;
             try
             {
                 db.Users.Add(user);

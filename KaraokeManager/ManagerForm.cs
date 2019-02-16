@@ -49,6 +49,10 @@ namespace KaraokeManager
                 case ScreenName.USER:
                     form = new UserForm();
                     break;
+                case ScreenName.STUDENT:
+                    form = new StudentForm();
+                    break;
+
             }
 
             form.MdiParent = this;
@@ -96,7 +100,7 @@ namespace KaraokeManager
 
         private void btnSinhVienThucHien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Trigger(ScreenName.USER_INFO);
+            Trigger(ScreenName.STUDENT);
         }
     }
 }

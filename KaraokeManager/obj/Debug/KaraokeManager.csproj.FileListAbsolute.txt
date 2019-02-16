@@ -126,3 +126,4 @@ C:\Workshop\KaraokeManager\KaraokeManager\obj\Debug\KaraokeManager.exe
 C:\Workshop\KaraokeManager\KaraokeManager\obj\Debug\KaraokeManager.pdb
 C:\Workshop\KaraokeManager\KaraokeManager\obj\Debug\KaraokeManager.Screen.HomeForm.resources
 C:\Workshop\KaraokeManager\KaraokeManager\obj\Debug\KaraokeManager.Screen.UserForm.resources
+C:\Workshop\KaraokeManager\KaraokeManager\obj\Debug\KaraokeManager.Screen.StudentForm.resources
