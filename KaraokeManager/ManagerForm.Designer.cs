@@ -54,7 +54,6 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -64,6 +63,7 @@
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -99,7 +99,7 @@
             this.ribbonPage3,
             this.ribbonPage4,
             this.ribbonPage5});
-            this.ribbon.Size = new System.Drawing.Size(1014, 235);
+            this.ribbon.Size = new System.Drawing.Size(1022, 222);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // barButtonItem1
@@ -229,6 +229,7 @@
             this.btnUser.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.ImageOptions.Image")));
             this.btnUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUser.ImageOptions.LargeImage")));
             this.btnUser.Name = "btnUser";
+            this.btnUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUser_ItemClick);
             // 
             // btnUserType
             // 
@@ -245,6 +246,7 @@
             this.btnSinhVienThucHien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSinhVienThucHien.ImageOptions.Image")));
             this.btnSinhVienThucHien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSinhVienThucHien.ImageOptions.LargeImage")));
             this.btnSinhVienThucHien.Name = "btnSinhVienThucHien";
+            this.btnSinhVienThucHien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVienThucHien_ItemClick);
             // 
             // btnThoat
             // 
@@ -253,6 +255,7 @@
             this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
             this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.LargeImage")));
             this.btnThoat.Name = "btnThoat";
+            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -265,7 +268,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnHome);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Trang chủ";
             // 
             // ribbonPage2
             // 
@@ -279,7 +282,7 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnUserInfo);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Thông tin cá nhân";
             // 
             // ribbonPageGroup8
             // 
@@ -287,13 +290,12 @@
             this.ribbonPageGroup8.ItemLinks.Add(this.btnMusic);
             this.ribbonPageGroup8.ItemLinks.Add(this.btnRoom);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "Quản lý";
             // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3,
-            this.ribbonPageGroup10});
+            this.ribbonPageGroup3});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Quản trị";
             // 
@@ -301,13 +303,7 @@
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnUser);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
-            // 
-            // ribbonPageGroup10
-            // 
-            this.ribbonPageGroup10.ItemLinks.Add(this.btnUserType);
-            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-            this.ribbonPageGroup10.Text = "ribbonPageGroup10";
+            this.ribbonPageGroup3.Text = "Tài khoản";
             // 
             // ribbonPage4
             // 
@@ -320,7 +316,7 @@
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.btnSinhVienThucHien);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Sinh viên thực hiện";
             // 
             // ribbonPage5
             // 
@@ -333,14 +329,14 @@
             // 
             this.ribbonPageGroup11.ItemLinks.Add(this.btnThoat);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.Text = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "Thoát";
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 469);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 609);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1014, 49);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1022, 40);
             // 
             // documentManager1
             // 
@@ -349,6 +345,10 @@
             this.documentManager1.View = this.tabbedView1;
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
+            // 
+            // tabbedView1
+            // 
+            this.tabbedView1.RootContainer.Element = null;
             // 
             // ribbonPageGroup6
             // 
@@ -362,11 +362,14 @@
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "ribbonPageGroup5";
             // 
+            // defaultLookAndFeel1
+            // 
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
+            // 
             // ManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 518);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1022, 649);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
@@ -416,7 +419,7 @@
         private DevExpress.XtraBars.BarButtonItem btnUserType;
         private DevExpress.XtraBars.BarButtonItem btnSinhVienThucHien;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }

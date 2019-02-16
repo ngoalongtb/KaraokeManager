@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtImage = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.txtMa = new System.Windows.Forms.TextBox();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
@@ -75,7 +75,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtImage);
+            this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.txtTen);
             this.groupBox1.Controls.Add(this.txtMa);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
@@ -84,7 +84,7 @@
             this.groupBox1.Size = new System.Drawing.Size(332, 459);
             this.groupBox1.TabIndex = 54;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sản phẩm";
+            this.groupBox1.Text = "Thức ăn";
             // 
             // btnXoa
             // 
@@ -93,13 +93,15 @@
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Image = global::KaraokeManager.Properties.Resources.delete_32x32;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(45, 397);
+            this.btnXoa.Location = new System.Drawing.Point(71, 407);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(117, 42);
-            this.btnXoa.TabIndex = 52;
+            this.btnXoa.TabIndex = 60;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -110,12 +112,13 @@
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(45, 349);
+            this.btnThem.Location = new System.Drawing.Point(71, 359);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(117, 42);
-            this.btnThem.TabIndex = 50;
+            this.btnThem.TabIndex = 58;
             this.btnThem.Text = "      Thêm mới";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -124,13 +127,15 @@
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Image = global::KaraokeManager.Properties.Resources.Apply_32x32;
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(168, 349);
+            this.btnSua.Location = new System.Drawing.Point(194, 359);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(117, 42);
-            this.btnSua.TabIndex = 51;
+            this.btnSua.TabIndex = 59;
             this.btnSua.Text = "     Cập nhật";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXem
             // 
@@ -139,13 +144,15 @@
             this.btnXem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXem.ForeColor = System.Drawing.Color.White;
+            this.btnXem.Image = global::KaraokeManager.Properties.Resources.Refresh2_32x32;
             this.btnXem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXem.Location = new System.Drawing.Point(168, 397);
+            this.btnXem.Location = new System.Drawing.Point(194, 407);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(117, 42);
-            this.btnXem.TabIndex = 53;
+            this.btnXem.TabIndex = 61;
             this.btnXem.Text = "    Tải lại";
             this.btnXem.UseVisualStyleBackColor = false;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // label3
             // 
@@ -177,12 +184,12 @@
             this.label1.TabIndex = 56;
             this.label1.Text = "Mã món ăn :";
             // 
-            // txtImage
+            // txtPrice
             // 
-            this.txtImage.Location = new System.Drawing.Point(159, 116);
-            this.txtImage.Name = "txtImage";
-            this.txtImage.Size = new System.Drawing.Size(150, 27);
-            this.txtImage.TabIndex = 55;
+            this.txtPrice.Location = new System.Drawing.Point(159, 116);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(150, 27);
+            this.txtPrice.TabIndex = 55;
             // 
             // txtTen
             // 
@@ -285,6 +292,7 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btnTimKiem.Image = global::KaraokeManager.Properties.Resources.Zoom_32x32;
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTimKiem.Location = new System.Drawing.Point(533, 12);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -293,6 +301,7 @@
             this.btnTimKiem.TabIndex = 41;
             this.btnTimKiem.Text = "     Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // FoodForm
             // 
@@ -305,6 +314,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FoodForm";
             this.Text = "Thức ăn";
+            this.Load += new System.EventHandler(this.FoodForm_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -320,14 +330,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtImage;
+        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.TextBox txtTimKiem;
@@ -335,5 +341,9 @@
         private System.Windows.Forms.DataGridView dtgv;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXem;
     }
 }

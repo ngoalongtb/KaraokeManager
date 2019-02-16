@@ -33,11 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -142,6 +142,12 @@
     <Compile Include="Screen\FoodForm.Designer.cs">
       <DependentUpon>FoodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screen\UserInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,15 +169,22 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Screen\FoodForm.resx">
       <DependentUpon>FoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\MusicForm.resx">
       <DependentUpon>MusicForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\UserInfoForm.resx">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
@@ -211,6 +224,27 @@
       <DependentUpon>AppDB.edmx</DependentUpon>
       <LastGenOutput>AppDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Zoom_32x32.png" />
+    <None Include="Resources\upload-icon.png" />
+    <None Include="Resources\tag_32x32.png" />
+    <None Include="Resources\tag_16x16.png" />
+    <None Include="Resources\Refresh2_32x32.png" />
+    <None Include="Resources\Login-icon1.png" />
+    <None Include="Resources\Login-icon.png" />
+    <None Include="Resources\Login-icon %281%29.png" />
+    <None Include="Resources\insertfooter_32x32.png" />
+    <None Include="Resources\insertfooter_16x16.png" />
+    <None Include="Resources\groupheader_32x32.png" />
+    <None Include="Resources\groupheader_16x16.png" />
+    <None Include="Resources\groupbyresource_32x32.png" />
+    <None Include="Resources\groupbyresource_16x16.png" />
+    <None Include="Resources\delete_32x32.png" />
+    <None Include="Resources\delete_16x16.png" />
+    <None Include="Resources\Clear_32x32.png" />
+    <None Include="Resources\bg.jpg" />
+    <None Include="Resources\Apply_32x32.png" />
+    <None Include="Resources\Add_32x32.png" />
+    <None Include="Resources\phan-mem-quan-ly-karaoke.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
