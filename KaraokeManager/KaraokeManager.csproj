@@ -61,10 +61,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\AppState.cs" />
+    <Compile Include="AppCode\StatusColor.cs" />
+    <Compile Include="AppCode\RoomStatus.cs" />
     <Compile Include="AppCode\Commons.cs" />
     <Compile Include="AppCode\ScreenName.cs" />
     <Compile Include="AppCode\Session.cs" />
     <Compile Include="AppCode\Triggerable.cs" />
+    <Compile Include="Components\RoomUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\RoomUC.Designer.cs">
+      <DependentUpon>RoomUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="EF\AppDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,6 +168,9 @@
     <Compile Include="Screen\UserInfoForm.Designer.cs">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Components\RoomUC.resx">
+      <DependentUpon>RoomUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

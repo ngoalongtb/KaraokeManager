@@ -1,4 +1,5 @@
-﻿using KaraokeManager.EF;
+﻿using KaraokeManager.AppCode;
+using KaraokeManager.EF;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,13 @@ namespace KaraokeManager.Screen
 
         private void RoomForm_Load(object sender, EventArgs e)
         {
+            cbxTrangThai.Items.Add(RoomStatus.TRONG);
+            cbxTrangThai.Items.Add(RoomStatus.CO_KHACH);
+            cbxTrangThai.Items.Add(RoomStatus.BAN);
+            cbxTrangThai.Items.Add(RoomStatus.DANG_DON_DEP);
+            cbxTrangThai.Items.Add(RoomStatus.DANG_SUA_CHUA);
+            
+
             LoadDtgv();
             dtgv.DataSource = bds;
             ChangeHeader();
@@ -47,7 +55,7 @@ namespace KaraokeManager.Screen
             txtCode.DataBindings.Add("Text", dtgv.DataSource, "Code", true, DataSourceUpdateMode.Never);
             txtName.DataBindings.Add("Text", dtgv.DataSource, "Name", true, DataSourceUpdateMode.Never);
             txtPrice.DataBindings.Add("Text", dtgv.DataSource, "Price", true, DataSourceUpdateMode.Never);
-            txtStatus.DataBindings.Add("Text", dtgv.DataSource, "Status", true, DataSourceUpdateMode.Never);
+            cbxTrangThai.DataBindings.Add("Text", dtgv.DataSource, "Status", true, DataSourceUpdateMode.Never);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -58,7 +66,7 @@ namespace KaraokeManager.Screen
 
                 room.Name = txtName.Text;
                 room.Price = double.Parse(txtPrice.Text);
-                room.Status = txtStatus.Text;
+                room.Status = cbxTrangThai.Text;
 
                 db.SaveChanges();
                 MessageBox.Show("Cập nhật thành công");
@@ -76,7 +84,7 @@ namespace KaraokeManager.Screen
             room.Code = txtCode.Text;
             room.Name = txtName.Text;
             room.Price = double.Parse(txtPrice.Text);
-            room.Status = txtStatus.Text;
+            room.Status = cbxTrangThai.Text;
 
             try
             {
@@ -100,8 +108,6 @@ namespace KaraokeManager.Screen
 
             if (confirmResult == DialogResult.Yes)
             {
-
-
                 try
                 {
                     Room room = db.Rooms.Find(txtCode.Text);
