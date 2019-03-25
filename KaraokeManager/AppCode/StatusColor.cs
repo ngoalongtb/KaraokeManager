@@ -13,5 +13,6 @@ namespace KaraokeManager.AppCode
         public static string BAN = "#909399";
         public static string DANG_DON_DEP = "#409EFF";
         public static string DANG_SUA_CHUA = "#E6A23C";
+        public static string DAT_TRUOC = "#F56C6C";
     }
 }

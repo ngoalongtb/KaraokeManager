@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KaraokeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KaraokeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Food">
           <Key>
             <PropertyRef Name="Id" />
@@ -33,6 +33,10 @@
           <Property Name="RoomPrice" Type="float" />
           <Property Name="Username" Type="nvarchar" MaxLength="255" />
           <Property Name="RoomCode" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="255" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="25" />
+          <Property Name="PersonID" Type="nvarchar" MaxLength="25" />
+          <Property Name="Status" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="OrderFood">
           <Key>
@@ -59,16 +63,6 @@
           <Property Name="Name" Type="nvarchar" MaxLength="255" />
           <Property Name="Price" Type="float" />
           <Property Name="Status" Type="nvarchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -172,7 +166,6 @@
           <EntitySet Name="OrderFood" EntityType="Self.OrderFood" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderMusic" EntityType="Self.OrderMusic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Order_Room" Association="Self.FK_Order_Room">
             <End Role="Room" EntitySet="Room" />
@@ -199,11 +192,43 @@
             <End Role="OrderMusic" EntitySet="OrderMusic" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KaraokeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AppDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Foods" EntityType="KaraokeModel.Food" />
+          <EntitySet Name="Musics" EntityType="KaraokeModel.Music" />
+          <EntitySet Name="Orders" EntityType="KaraokeModel.Order" />
+          <EntitySet Name="OrderFoods" EntityType="KaraokeModel.OrderFood" />
+          <EntitySet Name="OrderMusics" EntityType="KaraokeModel.OrderMusic" />
+          <EntitySet Name="Rooms" EntityType="KaraokeModel.Room" />
+          <EntitySet Name="Users" EntityType="KaraokeModel.User" />
+          <AssociationSet Name="FK_OrderFood_Food" Association="KaraokeModel.FK_OrderFood_Food">
+            <End Role="Food" EntitySet="Foods" />
+            <End Role="OrderFood" EntitySet="OrderFoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderMusic_Music" Association="KaraokeModel.FK_OrderMusic_Music">
+            <End Role="Music" EntitySet="Musics" />
+            <End Role="OrderMusic" EntitySet="OrderMusics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Room" Association="KaraokeModel.FK_Order_Room">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="KaraokeModel.FK_Order_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderFood_Order" Association="KaraokeModel.FK_OrderFood_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderFood" EntitySet="OrderFoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderMusic_Order" Association="KaraokeModel.FK_OrderMusic_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderMusic" EntitySet="OrderMusics" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Food">
           <Key>
             <PropertyRef Name="Id" />
@@ -211,7 +236,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Double" />
-          <NavigationProperty Name="OrderFoods" Relationship="Self.FK_OrderFood_Food" FromRole="Food" ToRole="OrderFood" />
+          <NavigationProperty Name="OrderFoods" Relationship="KaraokeModel.FK_OrderFood_Food" FromRole="Food" ToRole="OrderFood" />
         </EntityType>
         <EntityType Name="Music">
           <Key>
@@ -221,7 +246,7 @@
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Singer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrderMusics" Relationship="Self.FK_OrderMusic_Music" FromRole="Music" ToRole="OrderMusic" />
+          <NavigationProperty Name="OrderMusics" Relationship="KaraokeModel.FK_OrderMusic_Music" FromRole="Music" ToRole="OrderMusic" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -234,10 +259,14 @@
           <Property Name="RoomPrice" Type="Double" />
           <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="RoomCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Room" Relationship="Self.FK_Order_Room" FromRole="Order" ToRole="Room" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
-          <NavigationProperty Name="OrderFoods" Relationship="Self.FK_OrderFood_Order" FromRole="Order" ToRole="OrderFood" />
-          <NavigationProperty Name="OrderMusics" Relationship="Self.FK_OrderMusic_Order" FromRole="Order" ToRole="OrderMusic" />
+          <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PersonID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Room" Relationship="KaraokeModel.FK_Order_Room" FromRole="Order" ToRole="Room" />
+          <NavigationProperty Name="User" Relationship="KaraokeModel.FK_Order_User" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="OrderFoods" Relationship="KaraokeModel.FK_OrderFood_Order" FromRole="Order" ToRole="OrderFood" />
+          <NavigationProperty Name="OrderMusics" Relationship="KaraokeModel.FK_OrderMusic_Order" FromRole="Order" ToRole="OrderMusic" />
         </EntityType>
         <EntityType Name="OrderFood">
           <Key>
@@ -247,8 +276,8 @@
           <Property Name="OrderId" Type="Int32" />
           <Property Name="FoodId" Type="Int32" />
           <Property Name="FoodPrice" Type="Double" />
-          <NavigationProperty Name="Food" Relationship="Self.FK_OrderFood_Food" FromRole="OrderFood" ToRole="Food" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderFood_Order" FromRole="OrderFood" ToRole="Order" />
+          <NavigationProperty Name="Food" Relationship="KaraokeModel.FK_OrderFood_Food" FromRole="OrderFood" ToRole="Food" />
+          <NavigationProperty Name="Order" Relationship="KaraokeModel.FK_OrderFood_Order" FromRole="OrderFood" ToRole="Order" />
         </EntityType>
         <EntityType Name="OrderMusic">
           <Key>
@@ -257,46 +286,36 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OrderId" Type="Int32" />
           <Property Name="MusicId" Type="Int32" />
-          <NavigationProperty Name="Music" Relationship="Self.FK_OrderMusic_Music" FromRole="OrderMusic" ToRole="Music" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderMusic_Order" FromRole="OrderMusic" ToRole="Order" />
+          <NavigationProperty Name="Music" Relationship="KaraokeModel.FK_OrderMusic_Music" FromRole="OrderMusic" ToRole="Music" />
+          <NavigationProperty Name="Order" Relationship="KaraokeModel.FK_OrderMusic_Order" FromRole="OrderMusic" ToRole="Order" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
             <PropertyRef Name="Code" />
           </Key>
-          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Double" />
           <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Room" FromRole="Room" ToRole="Order" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Orders" Relationship="KaraokeModel.FK_Order_Room" FromRole="Room" ToRole="Order" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Username" />
           </Key>
-          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Fullname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="PersonId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Orders" Relationship="KaraokeModel.FK_Order_User" FromRole="User" ToRole="Order" />
         </EntityType>
         <Association Name="FK_OrderFood_Food">
-          <End Role="Food" Type="Self.Food" Multiplicity="0..1">
+          <End Type="KaraokeModel.Food" Role="Food" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="OrderFood" Type="Self.OrderFood" Multiplicity="*" />
+          <End Type="KaraokeModel.OrderFood" Role="OrderFood" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Food">
               <PropertyRef Name="Id" />
@@ -307,10 +326,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderMusic_Music">
-          <End Role="Music" Type="Self.Music" Multiplicity="0..1">
+          <End Type="KaraokeModel.Music" Role="Music" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="OrderMusic" Type="Self.OrderMusic" Multiplicity="*" />
+          <End Type="KaraokeModel.OrderMusic" Role="OrderMusic" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Music">
               <PropertyRef Name="Id" />
@@ -321,10 +340,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Room">
-          <End Role="Room" Type="Self.Room" Multiplicity="0..1">
+          <End Type="KaraokeModel.Room" Role="Room" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <End Type="KaraokeModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Room">
               <PropertyRef Name="Code" />
@@ -335,10 +354,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1">
+          <End Type="KaraokeModel.User" Role="User" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <End Type="KaraokeModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Username" />
@@ -349,10 +368,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderFood_Order">
-          <End Role="Order" Type="Self.Order" Multiplicity="0..1">
+          <End Type="KaraokeModel.Order" Role="Order" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="OrderFood" Type="Self.OrderFood" Multiplicity="*" />
+          <End Type="KaraokeModel.OrderFood" Role="OrderFood" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="Id" />
@@ -363,10 +382,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderMusic_Order">
-          <End Role="Order" Type="Self.Order" Multiplicity="0..1">
+          <End Type="KaraokeModel.Order" Role="Order" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="OrderMusic" Type="Self.OrderMusic" Multiplicity="*" />
+          <End Type="KaraokeModel.OrderMusic" Role="OrderMusic" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="Id" />
@@ -376,40 +395,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AppDB" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Foods" EntityType="Self.Food" />
-          <EntitySet Name="Musics" EntityType="Self.Music" />
-          <EntitySet Name="Orders" EntityType="Self.Order" />
-          <EntitySet Name="OrderFoods" EntityType="Self.OrderFood" />
-          <EntitySet Name="OrderMusics" EntityType="Self.OrderMusic" />
-          <EntitySet Name="Rooms" EntityType="Self.Room" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK_OrderFood_Food" Association="Self.FK_OrderFood_Food">
-            <End Role="Food" EntitySet="Foods" />
-            <End Role="OrderFood" EntitySet="OrderFoods" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderMusic_Music" Association="Self.FK_OrderMusic_Music">
-            <End Role="Music" EntitySet="Musics" />
-            <End Role="OrderMusic" EntitySet="OrderMusics" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Room" Association="Self.FK_Order_Room">
-            <End Role="Room" EntitySet="Rooms" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderFood_Order" Association="Self.FK_OrderFood_Order">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="OrderFood" EntitySet="OrderFoods" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderMusic_Order" Association="Self.FK_OrderMusic_Order">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="OrderMusic" EntitySet="OrderMusics" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -419,84 +404,77 @@
           <EntitySetMapping Name="Foods">
             <EntityTypeMapping TypeName="KaraokeModel.Food">
               <MappingFragment StoreEntitySet="Food">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Musics">
             <EntityTypeMapping TypeName="KaraokeModel.Music">
               <MappingFragment StoreEntitySet="Music">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="Singer" ColumnName="Singer" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="KaraokeModel.Order">
               <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
-                <ScalarProperty Name="KaraokeType" ColumnName="KaraokeType" />
-                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
-                <ScalarProperty Name="RoomPrice" ColumnName="RoomPrice" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="RoomCode" ColumnName="RoomCode" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="RoomPrice" ColumnName="RoomPrice" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="KaraokeType" ColumnName="KaraokeType" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderFoods">
             <EntityTypeMapping TypeName="KaraokeModel.OrderFood">
               <MappingFragment StoreEntitySet="OrderFood">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
                 <ScalarProperty Name="FoodPrice" ColumnName="FoodPrice" />
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderMusics">
             <EntityTypeMapping TypeName="KaraokeModel.OrderMusic">
               <MappingFragment StoreEntitySet="OrderMusic">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="MusicId" ColumnName="MusicId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
             <EntityTypeMapping TypeName="KaraokeModel.Room">
               <MappingFragment StoreEntitySet="Room">
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="KaraokeModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="KaraokeModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
                 <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

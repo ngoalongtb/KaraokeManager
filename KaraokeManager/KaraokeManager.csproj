@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\AppState.cs" />
+    <Compile Include="AppCode\OrderStatus.cs" />
     <Compile Include="AppCode\StatusColor.cs" />
     <Compile Include="AppCode\RoomStatus.cs" />
     <Compile Include="AppCode\Commons.cs" />
@@ -106,9 +107,6 @@
     <Compile Include="EF\Room.cs">
       <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\sysdiagram.cs">
-      <DependentUpon>AppDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\User.cs">
       <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
@@ -131,6 +129,12 @@
     </Compile>
     <Compile Include="Screen\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\RoomDetailStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\RoomDetailStatusForm.Designer.cs">
+      <DependentUpon>RoomDetailStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Screen\RoomForm.cs">
       <SubType>Form</SubType>
@@ -196,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\MusicForm.resx">
       <DependentUpon>MusicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\RoomDetailStatusForm.resx">
+      <DependentUpon>RoomDetailStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>

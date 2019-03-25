@@ -28,6 +28,10 @@ namespace KaraokeManager.EF
         public Nullable<double> RoomPrice { get; set; }
         public string Username { get; set; }
         public string RoomCode { get; set; }
+        public string CustomerName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string PersonID { get; set; }
+        public string Status { get; set; }
     
         public virtual Room Room { get; set; }
         public virtual User User { get; set; }

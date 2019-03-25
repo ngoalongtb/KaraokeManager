@@ -31,7 +31,6 @@ namespace KaraokeManager.EF
         public virtual DbSet<OrderFood> OrderFoods { get; set; }
         public virtual DbSet<OrderMusic> OrderMusics { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

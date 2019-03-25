@@ -52,12 +52,19 @@ namespace KaraokeManager.Components
                     case RoomStatus.DANG_SUA_CHUA:
                         this.BackColor = ColorTranslator.FromHtml(StatusColor.DANG_SUA_CHUA);
                         break;
+                    case RoomStatus.DAT_TRUOC:
+                        this.BackColor = ColorTranslator.FromHtml(StatusColor.DAT_TRUOC);
+                        break;
                     default:
                         break;
                 }
-                if(value.Status == "")
                 room = value;
             }
+        }
+
+        private void RoomUC_Click(object sender, EventArgs e)
+        {
+            AppState.ManagerForm.Trigger(ScreenName.ROOM_DETAIL, this.room);
         }
     }
 }

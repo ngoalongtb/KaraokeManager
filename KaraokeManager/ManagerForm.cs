@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using KaraokeManager.AppCode;
 using KaraokeManager.Screen;
+using KaraokeManager.EF;
 
 namespace KaraokeManager
 {
@@ -80,7 +81,17 @@ namespace KaraokeManager
 
         public void Trigger(string screen, object data)
         {
-            throw new NotImplementedException();
+            Form form = null;
+
+            switch (screen)
+            {
+                case ScreenName.ROOM_DETAIL:
+                    form = new RoomDetailStatusForm(data as Room);
+                    break;
+            }
+
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void btnUserInfo_ItemClick(object sender, ItemClickEventArgs e)

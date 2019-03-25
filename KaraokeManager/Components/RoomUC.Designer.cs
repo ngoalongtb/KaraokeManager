@@ -56,6 +56,7 @@
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nhận phòng:";
+            this.label2.Visible = false;
             // 
             // lblTimeStart
             // 
@@ -66,6 +67,7 @@
             this.lblTimeStart.Size = new System.Drawing.Size(49, 20);
             this.lblTimeStart.TabIndex = 0;
             this.lblTimeStart.Text = "00:00";
+            this.lblTimeStart.Visible = false;
             // 
             // lblTotalTime
             // 
@@ -76,6 +78,7 @@
             this.lblTotalTime.Size = new System.Drawing.Size(36, 20);
             this.lblTotalTime.TabIndex = 0;
             this.lblTotalTime.Text = "50p";
+            this.lblTotalTime.Visible = false;
             // 
             // label5
             // 
@@ -85,6 +88,7 @@
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Thời lượng:";
+            this.label5.Visible = false;
             // 
             // lblTotalPrice
             // 
@@ -95,6 +99,7 @@
             this.lblTotalPrice.Size = new System.Drawing.Size(89, 20);
             this.lblTotalPrice.TabIndex = 0;
             this.lblTotalPrice.Text = "1.000.000đ";
+            this.lblTotalPrice.Visible = false;
             // 
             // label7
             // 
@@ -104,6 +109,7 @@
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "Tổng tiền:";
+            this.label7.Visible = false;
             // 
             // lblStatus
             // 
@@ -132,6 +138,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "RoomUC";
             this.Size = new System.Drawing.Size(210, 135);
+            this.Click += new System.EventHandler(this.RoomUC_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

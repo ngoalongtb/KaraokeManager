@@ -29,7 +29,8 @@ namespace KaraokeManager.Screen
             cbxTrangThai.Items.Add(RoomStatus.BAN);
             cbxTrangThai.Items.Add(RoomStatus.DANG_DON_DEP);
             cbxTrangThai.Items.Add(RoomStatus.DANG_SUA_CHUA);
-            
+            cbxTrangThai.Items.Add(RoomStatus.DAT_TRUOC);
+
 
             LoadDtgv();
             dtgv.DataSource = bds;

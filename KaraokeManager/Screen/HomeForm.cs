@@ -33,6 +33,7 @@ namespace KaraokeManager.Screen
             lblSoPhongBan.Text = db.Rooms.Count(x => x.Status == RoomStatus.BAN).ToString();
             lblSoPhongDangDonDep.Text = db.Rooms.Count(x => x.Status == RoomStatus.DANG_DON_DEP).ToString();
             lblSoPhongDangSuaChua.Text = db.Rooms.Count(x => x.Status == RoomStatus.DANG_SUA_CHUA).ToString();
+            lblSoPhongDatTruoc.Text = db.Rooms.Count(x => x.Status == RoomStatus.DAT_TRUOC).ToString();
             lblTongCong.Text = db.Rooms.Count().ToString();
 
             foreach (var room in db.Rooms.ToList())
