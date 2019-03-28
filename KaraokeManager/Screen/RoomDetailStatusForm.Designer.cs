@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbxTrangThai = new System.Windows.Forms.ComboBox();
             this.lbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -109,6 +109,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.lblThoiLuongOrBaiHatKey = new System.Windows.Forms.Label();
+            this.lblThoiLuongOrBaiHatValue = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -274,9 +276,11 @@
             // 
             this.groupBox2.Controls.Add(this.lblTotalPrice);
             this.groupBox2.Controls.Add(this.lblTotalPriceFood);
+            this.groupBox2.Controls.Add(this.lblThoiLuongOrBaiHatValue);
             this.groupBox2.Controls.Add(this.lblTotalPriceRoomOrMusic);
             this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.lblThoiLuongOrBaiHatKey);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.txtCMTND);
             this.groupBox2.Controls.Add(this.txtSoDienThoai);
@@ -300,7 +304,7 @@
             // lblTotalPrice
             // 
             this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Location = new System.Drawing.Point(204, 268);
+            this.lblTotalPrice.Location = new System.Drawing.Point(204, 275);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(17, 19);
             this.lblTotalPrice.TabIndex = 85;
@@ -309,7 +313,7 @@
             // lblTotalPriceFood
             // 
             this.lblTotalPriceFood.AutoSize = true;
-            this.lblTotalPriceFood.Location = new System.Drawing.Point(204, 241);
+            this.lblTotalPriceFood.Location = new System.Drawing.Point(204, 255);
             this.lblTotalPriceFood.Name = "lblTotalPriceFood";
             this.lblTotalPriceFood.Size = new System.Drawing.Size(17, 19);
             this.lblTotalPriceFood.TabIndex = 85;
@@ -318,7 +322,7 @@
             // lblTotalPriceRoomOrMusic
             // 
             this.lblTotalPriceRoomOrMusic.AutoSize = true;
-            this.lblTotalPriceRoomOrMusic.Location = new System.Drawing.Point(204, 217);
+            this.lblTotalPriceRoomOrMusic.Location = new System.Drawing.Point(204, 238);
             this.lblTotalPriceRoomOrMusic.Name = "lblTotalPriceRoomOrMusic";
             this.lblTotalPriceRoomOrMusic.Size = new System.Drawing.Size(17, 19);
             this.lblTotalPriceRoomOrMusic.TabIndex = 85;
@@ -327,7 +331,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(99, 268);
+            this.label24.Location = new System.Drawing.Point(99, 275);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(73, 19);
             this.label24.TabIndex = 84;
@@ -336,7 +340,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(75, 239);
+            this.label17.Location = new System.Drawing.Point(75, 256);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(97, 19);
             this.label17.TabIndex = 84;
@@ -345,7 +349,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(59, 215);
+            this.label16.Location = new System.Drawing.Point(59, 236);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(113, 19);
             this.label16.TabIndex = 84;
@@ -558,37 +562,37 @@
             this.dtgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvFood.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtgvFood.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvFood.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvFood.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvFood.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvFood.EnableHeadersVisualStyles = false;
             this.dtgvFood.Location = new System.Drawing.Point(0, 0);
             this.dtgvFood.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtgvFood.Name = "dtgvFood";
             this.dtgvFood.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 12F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvFood.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvFood.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvFood.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
             this.dtgvFood.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dtgvFood.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
@@ -781,37 +785,37 @@
             this.dtgvMusic.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvMusic.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtgvMusic.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 12F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMusic.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMusic.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgvMusic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 12F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvMusic.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvMusic.DefaultCellStyle = dataGridViewCellStyle5;
             this.dtgvMusic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvMusic.EnableHeadersVisualStyles = false;
             this.dtgvMusic.Location = new System.Drawing.Point(0, 0);
             this.dtgvMusic.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtgvMusic.Name = "dtgvMusic";
             this.dtgvMusic.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 12F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMusic.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMusic.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvMusic.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
             this.dtgvMusic.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dtgvMusic.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
@@ -1015,6 +1019,24 @@
             this.timer.Interval = 30000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // lblThoiLuongOrBaiHatKey
+            // 
+            this.lblThoiLuongOrBaiHatKey.AutoSize = true;
+            this.lblThoiLuongOrBaiHatKey.Location = new System.Drawing.Point(59, 216);
+            this.lblThoiLuongOrBaiHatKey.Name = "lblThoiLuongOrBaiHatKey";
+            this.lblThoiLuongOrBaiHatKey.Size = new System.Drawing.Size(85, 19);
+            this.lblThoiLuongOrBaiHatKey.TabIndex = 84;
+            this.lblThoiLuongOrBaiHatKey.Text = "Thời lượng:";
+            // 
+            // lblThoiLuongOrBaiHatValue
+            // 
+            this.lblThoiLuongOrBaiHatValue.AutoSize = true;
+            this.lblThoiLuongOrBaiHatValue.Location = new System.Drawing.Point(204, 218);
+            this.lblThoiLuongOrBaiHatValue.Name = "lblThoiLuongOrBaiHatValue";
+            this.lblThoiLuongOrBaiHatValue.Size = new System.Drawing.Size(17, 19);
+            this.lblThoiLuongOrBaiHatValue.TabIndex = 85;
+            this.lblThoiLuongOrBaiHatValue.Text = "0";
+            // 
             // RoomDetailStatusForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1126,5 +1148,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbxOrderType;
+        private System.Windows.Forms.Label lblThoiLuongOrBaiHatValue;
+        private System.Windows.Forms.Label lblThoiLuongOrBaiHatKey;
     }
 }

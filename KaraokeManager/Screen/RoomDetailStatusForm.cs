@@ -8,8 +8,10 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraReports.UI;
 using KaraokeManager.AppCode;
 using KaraokeManager.EF;
+using KaraokeManager.Report;
 
 namespace KaraokeManager.Screen
 {
@@ -70,13 +72,23 @@ namespace KaraokeManager.Screen
 
             if (cbxOrderType.Text == "Theo giờ")
             {
-
+                lblThoiLuongOrBaiHatKey.Text = "Thời lượng:";
+                dtpkEnd.Value = DateTime.Now;
+                if (dtpkStart.Value != null && dtpkEnd.Value != null)
+                {
+                    TimeSpan span = dtpkEnd.Value - dtpkStart.Value;
+                    int mm = span.Minutes;
+                    lblThoiLuongOrBaiHatValue.Text = mm.ToString() + " phút";
+                    lblTotalPriceRoomOrMusic.Text = ((1.0 * mm / 60) * order.Room.Price).ToString();
+                }
             }
             else
             {
+                lblThoiLuongOrBaiHatKey.Text = "Số bài hát:";
+                lblThoiLuongOrBaiHatValue.Text = (int.Parse(lblTotalMusic.Text) / 20000).ToString();
                 lblTotalPriceRoomOrMusic.Text = lblTotalMusic.Text;
             }
-            lblTotalPrice.Text = (int.Parse(lblTotalPriceFood.Text) + int.Parse(lblTotalPriceRoomOrMusic.Text)).ToString();
+            lblTotalPrice.Text = (int.Parse(lblTotalPriceFood.Text) + double.Parse(lblTotalPriceRoomOrMusic.Text)).ToString();
         }
 
         public void LoadRoomInfo()
@@ -135,6 +147,10 @@ namespace KaraokeManager.Screen
             txtKhachHang.Text = order.CustomerName;
             txtCMTND.Text = order.PersonID;
             txtSoDienThoai.Text = order.PhoneNumber;
+            if (order.StartDateTime != null)
+            {
+                dtpkStart.Value = order.StartDateTime.Value;
+            }
 
             LoadDtgvs();
             ValidateStatus();
@@ -188,7 +204,11 @@ namespace KaraokeManager.Screen
 
         private void btnInHoaDon_Click(object sender, EventArgs e)
         {
-
+            OrderReportModel reportModel = new OrderReportModel();
+            OrderReport report = new OrderReport(reportModel);
+            //report.DataSource = list;
+            ReportPrintTool printTool = new ReportPrintTool(report);
+            printTool.ShowPreview();
         }
 
         private void btnDatTruoc_Click(object sender, EventArgs e)
@@ -285,6 +305,12 @@ namespace KaraokeManager.Screen
         private void timer_Tick(object sender, EventArgs e)
         {
             dtpkEnd.Value = DateTime.Now;
+            if (dtpkStart.Value != null && dtpkEnd.Value != null)
+            {
+                TimeSpan span = dtpkEnd.Value - dtpkStart.Value;
+                int mm = span.Minutes;
+                lblThoiLuongOrBaiHatValue.Text = mm.ToString() + " phút";
+            } 
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)

@@ -21,6 +21,10 @@ namespace KaraokeManager
             InitializeComponent();
             Trigger(ScreenName.HOME);
             AppState.ManagerForm = this;
+            if (Session.LoginAccount.UserType != "Quản trị viên")
+            {
+                ribbonAdmin.Visible = false;
+            }
         }
         public void Trigger()
         {
