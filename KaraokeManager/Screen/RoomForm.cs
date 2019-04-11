@@ -94,7 +94,7 @@ namespace KaraokeManager.Screen
                 MessageBox.Show("Thêm mới thành công");
                 LoadDtgv();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Thêm mới không thành công. Vui lòng kiểm tra lại");
             }

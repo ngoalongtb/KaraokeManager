@@ -49,9 +49,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.lblTotalPriceFood = new System.Windows.Forms.Label();
+            this.lblThoiLuongOrBaiHatValue = new System.Windows.Forms.Label();
             this.lblTotalPriceRoomOrMusic = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.lblThoiLuongOrBaiHatKey = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtCMTND = new System.Windows.Forms.TextBox();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
@@ -109,8 +111,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.lblThoiLuongOrBaiHatKey = new System.Windows.Forms.Label();
-            this.lblThoiLuongOrBaiHatValue = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -319,6 +319,15 @@
             this.lblTotalPriceFood.TabIndex = 85;
             this.lblTotalPriceFood.Text = "0";
             // 
+            // lblThoiLuongOrBaiHatValue
+            // 
+            this.lblThoiLuongOrBaiHatValue.AutoSize = true;
+            this.lblThoiLuongOrBaiHatValue.Location = new System.Drawing.Point(204, 218);
+            this.lblThoiLuongOrBaiHatValue.Name = "lblThoiLuongOrBaiHatValue";
+            this.lblThoiLuongOrBaiHatValue.Size = new System.Drawing.Size(17, 19);
+            this.lblThoiLuongOrBaiHatValue.TabIndex = 85;
+            this.lblThoiLuongOrBaiHatValue.Text = "0";
+            // 
             // lblTotalPriceRoomOrMusic
             // 
             this.lblTotalPriceRoomOrMusic.AutoSize = true;
@@ -345,6 +354,15 @@
             this.label17.Size = new System.Drawing.Size(97, 19);
             this.label17.TabIndex = 84;
             this.label17.Text = "Tiền gọi món:";
+            // 
+            // lblThoiLuongOrBaiHatKey
+            // 
+            this.lblThoiLuongOrBaiHatKey.AutoSize = true;
+            this.lblThoiLuongOrBaiHatKey.Location = new System.Drawing.Point(59, 216);
+            this.lblThoiLuongOrBaiHatKey.Name = "lblThoiLuongOrBaiHatKey";
+            this.lblThoiLuongOrBaiHatKey.Size = new System.Drawing.Size(85, 19);
+            this.lblThoiLuongOrBaiHatKey.TabIndex = 84;
+            this.lblThoiLuongOrBaiHatKey.Text = "Thời lượng:";
             // 
             // label16
             // 
@@ -1018,24 +1036,6 @@
             this.timer.Enabled = true;
             this.timer.Interval = 30000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // lblThoiLuongOrBaiHatKey
-            // 
-            this.lblThoiLuongOrBaiHatKey.AutoSize = true;
-            this.lblThoiLuongOrBaiHatKey.Location = new System.Drawing.Point(59, 216);
-            this.lblThoiLuongOrBaiHatKey.Name = "lblThoiLuongOrBaiHatKey";
-            this.lblThoiLuongOrBaiHatKey.Size = new System.Drawing.Size(85, 19);
-            this.lblThoiLuongOrBaiHatKey.TabIndex = 84;
-            this.lblThoiLuongOrBaiHatKey.Text = "Thời lượng:";
-            // 
-            // lblThoiLuongOrBaiHatValue
-            // 
-            this.lblThoiLuongOrBaiHatValue.AutoSize = true;
-            this.lblThoiLuongOrBaiHatValue.Location = new System.Drawing.Point(204, 218);
-            this.lblThoiLuongOrBaiHatValue.Name = "lblThoiLuongOrBaiHatValue";
-            this.lblThoiLuongOrBaiHatValue.Size = new System.Drawing.Size(17, 19);
-            this.lblThoiLuongOrBaiHatValue.TabIndex = 85;
-            this.lblThoiLuongOrBaiHatValue.Text = "0";
             // 
             // RoomDetailStatusForm
             // 

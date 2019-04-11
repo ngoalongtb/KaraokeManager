@@ -66,29 +66,36 @@ namespace KaraokeManager.Screen
 
         public void LoadDtgvMusic()
         {
-            bdsMusic.DataSource = order.OrderMusics.Select(x => new { x.MusicId, x.Music.Name });
-            dtgvMusic.DataSource = bdsMusic;
-            lblTotalMusic.Text = (order.OrderMusics.Count() * 20000).ToString();
+            try
+            {
+                bdsMusic.DataSource = order.OrderMusics.Select(x => new { x.MusicId, x.Music.Name });
+                dtgvMusic.DataSource = bdsMusic;
+                lblTotalMusic.Text = (order.OrderMusics.Count() * 20000).ToString();
 
-            if (cbxOrderType.Text == "Theo giờ")
-            {
-                lblThoiLuongOrBaiHatKey.Text = "Thời lượng:";
-                dtpkEnd.Value = DateTime.Now;
-                if (dtpkStart.Value != null && dtpkEnd.Value != null)
+                if (cbxOrderType.Text == "Theo giờ")
                 {
-                    TimeSpan span = dtpkEnd.Value - dtpkStart.Value;
-                    int mm = span.Minutes;
-                    lblThoiLuongOrBaiHatValue.Text = mm.ToString() + " phút";
-                    lblTotalPriceRoomOrMusic.Text = ((1.0 * mm / 60) * order.Room.Price).ToString();
+                    lblThoiLuongOrBaiHatKey.Text = "Thời lượng:";
+                    dtpkEnd.Value = DateTime.Now;
+                    if (dtpkStart.Value != null && dtpkEnd.Value != null)
+                    {
+                        TimeSpan span = dtpkEnd.Value - dtpkStart.Value;
+                        int mm = span.Minutes;
+                        lblThoiLuongOrBaiHatValue.Text = mm.ToString() + " phút";
+                        lblTotalPriceRoomOrMusic.Text = ((1.0 * mm / 60) * order.Room.Price).ToString();
+                    }
                 }
+                else
+                {
+                    lblThoiLuongOrBaiHatKey.Text = "Số bài hát:";
+                    lblThoiLuongOrBaiHatValue.Text = (int.Parse(lblTotalMusic.Text) / 20000).ToString();
+                    lblTotalPriceRoomOrMusic.Text = lblTotalMusic.Text;
+                }
+                lblTotalPrice.Text = (int.Parse(lblTotalPriceFood.Text) + double.Parse(lblTotalPriceRoomOrMusic.Text)).ToString();
             }
-            else
+            catch (Exception)
             {
-                lblThoiLuongOrBaiHatKey.Text = "Số bài hát:";
-                lblThoiLuongOrBaiHatValue.Text = (int.Parse(lblTotalMusic.Text) / 20000).ToString();
-                lblTotalPriceRoomOrMusic.Text = lblTotalMusic.Text;
+                
             }
-            lblTotalPrice.Text = (int.Parse(lblTotalPriceFood.Text) + double.Parse(lblTotalPriceRoomOrMusic.Text)).ToString();
         }
 
         public void LoadRoomInfo()
@@ -104,8 +111,6 @@ namespace KaraokeManager.Screen
                 case RoomStatus.DANG_DON_DEP:
                 case RoomStatus.DANG_SUA_CHUA:
                 case RoomStatus.BAN:
-                    dtpkStart.Enabled = false;
-                    dtpkEnd.Enabled = false;
                     break;
                 case RoomStatus.DAT_TRUOC:
                 case RoomStatus.CO_KHACH:
@@ -178,15 +183,37 @@ namespace KaraokeManager.Screen
         {
             try
             {
-                order = new Order();
-                order.StartDateTime = DateTime.Now;
-                order.CustomerName = txtKhachHang.Text;
-                order.PhoneNumber = txtSoDienThoai.Text;
-                order.PersonID = txtCMTND.Text;
-                room.Status = RoomStatus.CO_KHACH;
-                order.RoomCode = lblMaPhong.Text;
+                Boolean confirmOrderBefore = false;
+                Order orderBefore =
+                    db.Orders.SingleOrDefault(x => x.RoomCode == room.Code && x.Status == RoomStatus.DAT_TRUOC);
+                if (orderBefore != null)
+                {
+                    var confirmResult = MessageBox.Show(string.Format("Bạn là {0} CMTND {1}", orderBefore.CustomerName, orderBefore.PersonID ) ,
+                        "Có phải bạn đã đặt trước phòng này!!",
+                        MessageBoxButtons.YesNo);
 
-                db.Orders.Add(order);
+                    confirmOrderBefore = (confirmResult == DialogResult.Yes);
+                }
+
+                if (!confirmOrderBefore)
+                {
+                    order = new Order();
+                    order.StartDateTime = DateTime.Now;
+                    order.CustomerName = txtKhachHang.Text;
+                    order.PhoneNumber = txtSoDienThoai.Text;
+                    order.PersonID = txtCMTND.Text;
+                    
+                    order.RoomCode = lblMaPhong.Text;
+
+                    db.Orders.Add(order);
+                }
+                else
+                {
+                    orderBefore.StartDateTime = DateTime.Now;
+                    orderBefore.Status = "";
+                    order = orderBefore;
+                }
+                room.Status = RoomStatus.CO_KHACH;
                 db.SaveChanges();
 
                 dtpkStart.Enabled = true;
@@ -221,7 +248,11 @@ namespace KaraokeManager.Screen
                 order.PhoneNumber = txtSoDienThoai.Text;
                 order.PersonID = txtCMTND.Text;
                 order.Status = OrderStatus.DAT_TRUOC;
+                order.RoomCode = room.Code;
+                order.KaraokeType = cbxOrderType.SelectedText;
+
                 db.Orders.Add(order);
+                db.SaveChanges();
                 LoadRoomInfo();
                 MessageBox.Show("Đặt trước thành công");
                 LoadDtgvs();
