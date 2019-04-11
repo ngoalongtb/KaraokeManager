@@ -47,7 +47,7 @@
             // 
             // btnUpdateInfo
             // 
-            this.btnUpdateInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnUpdateInfo.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnUpdateInfo.FlatAppearance.BorderSize = 0;
             this.btnUpdateInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateInfo.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

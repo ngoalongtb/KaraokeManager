@@ -138,6 +138,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "RoomUC";
             this.Size = new System.Drawing.Size(210, 135);
+            this.Load += new System.EventHandler(this.RoomUC_Load);
             this.Click += new System.EventHandler(this.RoomUC_Click);
             this.ResumeLayout(false);
             this.PerformLayout();

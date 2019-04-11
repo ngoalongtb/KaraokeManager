@@ -66,5 +66,10 @@ namespace KaraokeManager.Components
         {
             AppState.ManagerForm.Trigger(ScreenName.ROOM_DETAIL, this.room);
         }
+
+        private void RoomUC_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
