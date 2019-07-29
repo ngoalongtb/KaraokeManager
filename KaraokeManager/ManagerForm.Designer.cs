@@ -333,10 +333,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 609);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 604);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1022, 40);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1022, 45);
             // 
             // documentManager1
             // 

@@ -30,7 +30,7 @@ namespace KaraokeManager
                 this.Hide();
                 User loginAccount = loginQuery.First();
                 Session.LoginAccount = loginAccount;
-                ManagerForm f = new ManagerForm();
+                NewManagerForm f = new NewManagerForm();
                 f.ShowDialog();
                 this.Show();
             }

@@ -133,5 +133,19 @@ namespace KaraokeManager.Screen
         {
             bds.DataSource = db.Rooms.Where(x => x.Name.Contains(txtTimKiem.Text) || x.Code.Contains(txtTimKiem.Text)).Select(x => new { x.Code, x.Name, x.Price, x.Status }).ToList();
         }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Room room = db.Rooms.Find(txtCode.Text);
+                AppState.ManagerForm.Trigger(ScreenName.ROOM_DETAIL, room);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Có lỗi xảy ra");
+            }
+            
+        }
     }
 }

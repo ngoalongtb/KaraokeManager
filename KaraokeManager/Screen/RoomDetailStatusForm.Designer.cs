@@ -194,7 +194,7 @@
             // 
             // btnInHoaDon
             // 
-            this.btnInHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnInHoaDon.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnInHoaDon.FlatAppearance.BorderSize = 0;
             this.btnInHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInHoaDon.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,7 +210,7 @@
             // 
             // btnDatTruoc
             // 
-            this.btnDatTruoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnDatTruoc.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnDatTruoc.FlatAppearance.BorderSize = 0;
             this.btnDatTruoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDatTruoc.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -226,7 +226,7 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnThanhToan.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnThanhToan.FlatAppearance.BorderSize = 0;
             this.btnThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThanhToan.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -242,7 +242,7 @@
             // 
             // btnBatDau
             // 
-            this.btnBatDau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnBatDau.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnBatDau.FlatAppearance.BorderSize = 0;
             this.btnBatDau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBatDau.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,7 +258,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnCapNhat.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnCapNhat.FlatAppearance.BorderSize = 0;
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapNhat.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -719,7 +719,7 @@
             // 
             // btnDeleteFood
             // 
-            this.btnDeleteFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnDeleteFood.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnDeleteFood.FlatAppearance.BorderSize = 0;
             this.btnDeleteFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteFood.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -733,7 +733,7 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnAddFood.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnAddFood.FlatAppearance.BorderSize = 0;
             this.btnAddFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFood.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -748,16 +748,16 @@
             // 
             // btnFillFood
             // 
-            this.btnFillFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnFillFood.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnFillFood.FlatAppearance.BorderSize = 0;
             this.btnFillFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFillFood.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFillFood.ForeColor = System.Drawing.Color.White;
-            this.btnFillFood.Image = global::KaraokeManager.Properties.Resources.Zoom_32x32;
             this.btnFillFood.Location = new System.Drawing.Point(129, 6);
             this.btnFillFood.Name = "btnFillFood";
-            this.btnFillFood.Size = new System.Drawing.Size(32, 27);
+            this.btnFillFood.Size = new System.Drawing.Size(42, 27);
             this.btnFillFood.TabIndex = 85;
+            this.btnFillFood.Text = "Tìm";
             this.btnFillFood.UseVisualStyleBackColor = false;
             this.btnFillFood.Click += new System.EventHandler(this.btnFillFood_Click);
             // 
@@ -964,7 +964,7 @@
             // 
             // btnRemoveMusic
             // 
-            this.btnRemoveMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnRemoveMusic.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnRemoveMusic.FlatAppearance.BorderSize = 0;
             this.btnRemoveMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveMusic.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -978,22 +978,22 @@
             // 
             // btnFillMusic
             // 
-            this.btnFillMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnFillMusic.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnFillMusic.FlatAppearance.BorderSize = 0;
             this.btnFillMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFillMusic.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFillMusic.ForeColor = System.Drawing.Color.White;
-            this.btnFillMusic.Image = global::KaraokeManager.Properties.Resources.Zoom_32x32;
             this.btnFillMusic.Location = new System.Drawing.Point(129, 6);
             this.btnFillMusic.Name = "btnFillMusic";
-            this.btnFillMusic.Size = new System.Drawing.Size(32, 27);
+            this.btnFillMusic.Size = new System.Drawing.Size(42, 27);
             this.btnFillMusic.TabIndex = 85;
+            this.btnFillMusic.Text = "Tìm";
             this.btnFillMusic.UseVisualStyleBackColor = false;
             this.btnFillMusic.Click += new System.EventHandler(this.btnFillMusic_Click);
             // 
             // btnAddMusic
             // 
-            this.btnAddMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnAddMusic.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnAddMusic.FlatAppearance.BorderSize = 0;
             this.btnAddMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddMusic.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
